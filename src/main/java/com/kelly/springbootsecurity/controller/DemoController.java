@@ -52,7 +52,7 @@ public class DemoController {
     }*/
 
 
-    @PostMapping("/book")
+    @RequestMapping("/book")
     public String NewBook(Model model){
         String sql="SELECT Title, Author, Call_Number, Barcode, Exh_fr, Exh_end, book_id,revise_date,act_yn" +
                 " FROM new_book WHERE 1=1";
@@ -67,7 +67,7 @@ public class DemoController {
     }
 
 
-    @PostMapping("/table")
+    @RequestMapping("/table")
     public String table(Model model){
         String sql="SELECT user_id, user_name, email, password, enabled " +
                 " FROM users WHERE 1=1";
