@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    Welcome <span sec:authentication="name">Username</span>
+    &nbsp;&nbsp; <span sec:authentication="principal.authorities">Roles</span>
+</div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+</form>
+<h1>the NewBook add pages</h1>
+<form th:action="@{/doSaveNewBook}" method="post">
+    <ul> <li>Title</li>
+        <li><input type="text" name="Title"></li>
+        <li>Author</li>
+        <li><textarea rows="3" cols="50" name="Author"></textarea></li>
+        <li>Call_Number</li>
+        <li><input type="number" name="Call_Number"></li>
+        <li>Barcode</li>
+        <li><input type="number" name="Barcode"></li>
+        <li>Exh_fr</li>
+        <li><input type="date" name="Exh_fr"></li>
+        <li>Exh_end</li>
+        <li><input type="date" name="Exh_end"></li>
+        <li>revise_date</li>
+        <li><input type="date" name="revise_date"></li>
+        <li>act_yn</li>
+        <li><input type="text" name="act_yn"></li>
+        <li><input type="submit" value="Save NewBooks"></li>
+    </ul> </form>
+</body>
+</html>

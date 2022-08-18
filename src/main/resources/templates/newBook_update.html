@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b></b><span sec:authentication="name">Username</span></b>
+    &nbsp;&nbsp; <span sec:authentication="principal.authorities">Roles</span>
+</div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+</form>
+<h1>the goods update pages</h1>
+<form th:action="@{/doUpdateNewBook}" method="post">
+    <ul> <li><input type="hidden" name="id" th:value="${n.id}"></li>
+        <li>Title</li>
+        <li><input type="text" name="title" th:value="${n.title}"></li>
+        <li>Author</li>
+        <li><textarea rows="3" cols="50" name="remark" th:text="${n.author}"></textarea></li>
+        <li>Call_Number</li>
+        <li><input type="number" name="Call_Number" th:value="${n.call_Number}"></li>
+        <li>Barcode</li>
+        <li><input type="number" name="Barcode" th:value="${n.barcode}"></li>
+        <li>Exh_fr</li>
+        <li><input type="date" name="Exh_fr"  th:value="${n.exh_fr}"></li>
+        <li>Exh_end</li>
+        <li><input type="date" name="Exh_end"  th:value="${n.exh_end}"></li>
+        <li>revise_date</li>
+        <li><input type="date" name="revise_date"  th:value="${n.revise_date}"></li>
+        <li>act_yn</li>
+        <li><input type="text" name="act_yn"  th:value="${n.act_yn}"></li>
+        <li><input type="submit" value="Update NewBook"></li>
+    </ul> </form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+  Welcome <b><span sec:authentication="name">Username</span></b>
+  &nbsp;&nbsp; <span sec:authentication="principal.authorities">Roles</span>
+</div>
+
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Logout"/>
+</form>
+
+<table width="50%">
+  <a th:href ="@{/new}">NewBook</a>
+  <thead> <th>id</th>
+  <th>Title</th>
+  <th>Author</th>
+  <th>Barcode</th>
+  <th>Exh_fr</th>
+  <th>Exh_end</th>
+  <th>revise_date</th>
+  <th>act_yn</th>
+
+  </thead> <tbody> <tr th:each="n:${NewBookList}">
+  <td th:text="${n.title}"></td>
+  <td th:text="${n.author}"></td>
+  <td th:text="${n.call_number}"></td>
+  <td th:text="${n.arcode}"></td>
+  <td th:text="${n.exh_fr}"></td>
+  <td th:text="${n.exh_end}"></td>
+  <td th:text="${n.act_yn}"></td>
+  <td th:text="${#dates.format(n.revise_date, 'yyyy/MM/dd HH:mm')}">2020/07/03</td>
+
+    <a  th:href="@{/delete/{id}(id=${n.id})}">delete</a>  &nbsp; &nbsp; &nbsp;
+    <a  th:href="@{/edit/{id}(id=${n.id})}">update</a></td>
+</tr> </tbody></table>
+
+</body>
+</html>
