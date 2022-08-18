@@ -4,7 +4,18 @@
     <title>Spring Security</title>
 </head>
 <body>
-<h1>Welcome to Spring Security！</h1>
-<p>點擊 <a th:href="@{/hello}">這裏</a> to say hi！</p>
+<h1>歡迎使用 Springboot！</h1>
+<div class="navbar navbar-light bg-light navbar-expand-lg">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+        <li>
+            <button class="dropdown-item" id="check"><a href="/register">註冊</a><a href="/login">登入</a></button>
+        </li>
+
+        <li><button class="dropdown-item" id="NewBook"><a href="/book">NewBook</a>
+        </li>
+        <li><button class="dropdown-item" id="User"><a href="/table">user</a>
+        </li>
+    </div>
+</div>
 </body>
 </html>

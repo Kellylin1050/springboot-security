@@ -2,17 +2,16 @@ package com.kelly.springbootsecurity.controller;
 
 
 import com.kelly.springbootsecurity.model.NewBook;
+import com.kelly.springbootsecurity.model.User;
 import com.kelly.springbootsecurity.rowmapper.NewBookRowMapper;
 import com.kelly.springbootsecurity.rowmapper.UserRowMapper;
-import com.kelly.springbootsecurity.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,11 +39,7 @@ public class DemoController {
         return "login";
     }
 
-    @GetMapping("/signIn")
-    public String signIn(){
 
-        return null;
-    }
 
     /*@GetMapping("/403")
     public String error403(){

@@ -44,7 +44,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/","/login").permitAll()
+                .antMatchers("/","/register","/login").permitAll()
                 .antMatchers("/book").hasAnyAuthority( "CREATOR","EDITOR", "ADMIN")
                 .antMatchers("/table").hasAnyAuthority("EDITOR","ADMIN")
                 .antMatchers("/new").hasAnyAuthority("ADMIN", "CREATOR")

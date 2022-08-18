@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/register}" method="post">
+    帳  號：
+    <input type="text" name="username"><br/><br/>
+    密  碼：
+    <input type="password" name="password" id="password"><br/><br/>
+    確認密碼：
+    <input type="password" name="password_check" id="password_check"><br/><br/>
+    <input type="submit" value="註冊" name="submit">
+    <input type="reset" value="重設" name="submit">
+</form>
+
+    <form th:action="@{/doSaveUser}" method="post">
+        <ul> <li>Email</li>
+            <li><input type="text" name="Email"></li>
+            <li>User_name</li>
+            <li><textarea rows="3" cols="50" name="user_name"></textarea></li>
+            <li>Password</li>
+            <li><input type="password" name="Password"></li>
+            <li>Enabled</li>
+            <li><input type="number" name="Enabled"></li>
+
+        </ul> </form>
+</form>
+</body>
+</html>

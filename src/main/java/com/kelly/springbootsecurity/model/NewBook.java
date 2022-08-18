@@ -2,7 +2,6 @@ package com.kelly.springbootsecurity.model;
 
 import javax.persistence.*;
 import java.util.Date;
-
 @Entity
 @Table(name="new_book")
 public class NewBook {
@@ -90,4 +89,5 @@ public class NewBook {
     public void setAct_yn(String act_yn) {
         this.act_yn = act_yn;
     }
+
 }

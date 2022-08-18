@@ -5,18 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<div sec:authorize="isAuthenticated()">
-  Welcome <b><span sec:authentication="name">Username</span></b>
-  &nbsp;&nbsp; <span sec:authentication="principal.authorities">Roles</span>
-</div>
+<div class="container-fluid">
 
-<form th:action="@{/logout}" method="post">
-  <input type="submit" value="Logout"/>
-</form>
+  <div class="row">
+    <div class="col-md-6">
+      <url class="nav nav-pills">
+        <li role="presentation" class="activeTableTab"><a th:href="@{/}"> Home </a></li>
+      </url>
+    </div>
+  </div>
 
-<table width="50%">
-  <a th:href ="@{/new}">NewBook</a>
-  <thead> <th>id</th>
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+      <tr class="success">
+        <th><input type="checkbox"></th>
+  <th>id</th>
   <th>Title</th>
   <th>Author</th>
   <th>Barcode</th>
@@ -24,8 +28,8 @@
   <th>Exh_end</th>
   <th>revise_date</th>
   <th>act_yn</th>
-
-  </thead> <tbody> <tr th:each="n:${NewBookList}">
+      </tr>
+  </thead>  <tr th:each="n:${NewBookList}">
   <td th:text="${n.title}"></td>
   <td th:text="${n.author}"></td>
   <td th:text="${n.call_number}"></td>
@@ -33,11 +37,51 @@
   <td th:text="${n.exh_fr}"></td>
   <td th:text="${n.exh_end}"></td>
   <td th:text="${n.act_yn}"></td>
-  <td th:text="${#dates.format(n.revise_date, 'yyyy/MM/dd HH:mm')}">2020/07/03</td>
+      <td th:text="${#dates.format(n.revise_date, 'yyyy/MM/dd HH:mm')}">2020/07/03</td>
+      <td>
+        <button type="button" class="btn btn-default">change</button>
+        <button type="button" class="btn btn-default">delete</button>
+      </td>
+    </tr>
+    </table>  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation">
+        <ul class="pagination" style="float: right">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a> </li>
+          <li><a href="#">2</a> </li>
+          <li><a href="#">3</a> </li>
+          <li><a href="#">4</a> </li>
+          <li><a href="#">5</a> </li>
+          <li><a href="#">6</a> </li>
+          <li><a href="#">7</a> </li>
+          <li><a href="#">8</a> </li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
 
-    <a  th:href="@{/delete/{id}(id=${n.id})}">delete</a>  &nbsp; &nbsp; &nbsp;
-    <a  th:href="@{/edit/{id}(id=${n.id})}">update</a></td>
-</tr> </tbody></table>
+</script>
+
+  <a  th:href="@{/delete/{id}(id=${n.id})}">delete</a> ;
+  <a  th:href="@{/edit/{id}(id=${n.id})}">update</a></td>
+
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+  </form>
+
 
 </body>
 </html>
